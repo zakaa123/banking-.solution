@@ -11,35 +11,36 @@ body{
 }
 /* Navbar container */
 .navbar {
-  height: 70px; 
+  height: 70px;
   display: flex;
-  align-items: center; 
-  justify-content: space-between; 
-  background-color: rgba(184, 178, 166, 0.7); 
-  backdrop-filter: blur(10px); 
-  position: fixed; 
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(184, 178, 166, 0.7);
+  backdrop-filter: blur(10px);
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   transition: all 0.3s ease;
-  padding: 0 20px; /* Optional: horizontal spacing */
+  padding: 0 20px; /* Horizontal spacing */
 }
 
-/* Logo (Navbar.Brand) */
+/* Logo */
 .navbar-brand {
   color: #fff;
   font-size: 1.8rem;
   display: flex;
-  align-items: center; 
-  height: 100%; 
+  align-items: center;
+  height: 100%;
   font-family: 'Playfair Display', serif;
 }
+
 .navbar-brand:hover {
   color: #ff7f50;
 }
 
-/* Toggle button (hamburger/cross) */
+/* Toggle button (hamburger) */
 .navbar-toggler {
   border: none;
   outline: none;
@@ -52,7 +53,7 @@ body{
 /* Nav links */
 .navbar-nav {
   display: flex;
-  align-items: center; /* Center links vertically */
+  align-items: center; /* Center vertically */
   height: 100%; /* Match navbar height */
 }
 
@@ -61,8 +62,8 @@ body{
   font-weight: 500;
   padding: 0 15px; /* Space between links */
   display: flex;
-  align-items: center; /* Center text vertically */
-  height: 100%; /* Full navbar height */
+  align-items: center;
+  height: 100%;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -71,9 +72,9 @@ body{
   transform: translateY(-2px);
 }
 
-/* Nav dropdown menu */
+/* Dropdown menu */
 .navbar .dropdown-menu {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   border: none;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -96,7 +97,7 @@ body{
   color: #333;
   font-size: 1.2rem;
   display: flex;
-  align-items: center; /* Center vertically */
+  align-items: center;
   height: 100%;
   transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -106,10 +107,10 @@ body{
   transform: translateY(-3px);
 }
 
-/* Responsive collapse menu */
+/* ✅ Responsive collapse menu */
 @media (max-width: 991.98px) {
   .navbar {
-    height: auto; /* Let height grow on mobile */
+    height: auto; /* Allow navbar to grow */
     padding: 10px 20px;
   }
 
@@ -135,6 +136,19 @@ body{
   }
 }
 
+@media (max-width: 575.98px) {
+  .navbar-brand {
+    font-size: 1.5rem; /* Slightly smaller logo text */
+  }
+
+  .nav-link {
+    font-size: 1rem; /* Slightly smaller nav text */
+  }
+
+  .navbar {
+    padding: 8px 15px;
+  }
+}
 
 /* hero section */
 
@@ -145,6 +159,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .overlay {
@@ -161,33 +176,36 @@ body{
   z-index: 2;
   width: 100%;
   text-align: center;
+  padding: 0 1rem; /* Add padding for small screens */
 }
 
 .hero-content {
   color: #fff;
   animation: fadeInUp 1s ease-in-out;
+  margin-bottom: 80px; /* Push text slightly up from the dots */
 }
 
 .hero-content h1 {
   font-size: 3.5rem;
   letter-spacing: 2px;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
-.hero-content {
-  color: #fff;
-  animation: fadeInUp 1s ease-in-out;
-  margin-bottom: 80px; /* ⬅ Push text slightly up from the dots */
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .carousel-indicators {
-  bottom: 30px; /* ⬅ Push dots even lower */
+  bottom: 30px; /* Push dots lower */
 }
 
 .carousel-indicators [data-bs-target] {
   background-color: #fff; /* White dots */
-  width: 5px;
-  height: 5px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   opacity: 0.7;
 }
@@ -196,9 +214,21 @@ body{
   opacity: 1;
 }
 
+/* ✅ Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2.2rem;
+    letter-spacing: 1px;
   }
 
   .hero-content p {
@@ -206,6 +236,21 @@ body{
   }
 }
 
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .carousel-indicators {
+    bottom: 20px; /* Slightly higher for small devices */
+  }
+}
+
+/* ✅ Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -348,18 +393,17 @@ body {
 .about-container {
   padding: 50px 20px;
   max-width: 1200px;
-  margin-top: 110px;
+  margin: 110px auto 0;
 }
 
 .about-header {
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .about-title {
-   color: #fd7e14;
+  color: #fd7e14;
   font-size: 2.5rem;
-  /* font-weight: bold; */
   margin-bottom: 10px;
 }
 
@@ -380,12 +424,13 @@ body {
   width: 100%;
   max-width: 500px;
   border-radius: 10px;
-  margin-left: 20px;
+  margin: 0 auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .about-text {
   max-width: 600px;
+  text-align: center;
 }
 
 .about-text h3 {
@@ -400,12 +445,13 @@ body {
   margin-bottom: 10px;
 }
 
-/* Responsive */
+/* Tablet and larger */
 @media (min-width: 768px) {
   .about-content {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    text-align: left;
   }
 
   .about-image,
@@ -416,7 +462,42 @@ body {
   .about-image {
     margin-right: 30px;
   }
+
+  .about-text {
+    text-align: left;
+  }
 }
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .about-title {
+    font-size: 3rem;
+  }
+
+  .about-text h3 {
+    font-size: 2rem;
+  }
+
+  .about-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .about-subtitle {
+    font-size: 1rem;
+  }
+}
+
 
 /* team section */
 
@@ -1008,7 +1089,7 @@ body {
   transform: scale(1.2);
 }
 
-.windows-activation {
+/* .windows-activation {
   color: #999;
   font-size: 0.9rem;
   margin-top: 3rem;
@@ -1016,7 +1097,7 @@ body {
 
 .windows-activation p:first-child {
   margin-bottom: 0.3rem;
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -1328,38 +1409,35 @@ body {
 
 .bank-services {
   max-width: 1200px;
-margin-top: 40px;
- 
-  /* margin: 0 auto; */
+  margin: 40px auto 0;
   padding: 4rem 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .service-item {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /* Side-by-side layout for large screens */
   gap: 3rem;
-  
   align-items: center;
   margin-bottom: 4rem;
 }
 
 .service-item.right {
-   
-  direction: rtl;
+  direction: rtl; /* Flip columns for alternate items */
 }
 
 .service-item.right .service-content {
-  
-  direction: ltr;
+  direction: ltr; /* Reset text direction */
 }
 
 .service-image {
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  width: 500px; /* Fixed width to match screenshot */
-  height: 350px; /* Fixed height to match screenshot */
+  width: 100%;
+  max-width: 500px;
+  height: 350px;
+  margin: 0 auto;
 }
 
 .service-image img {
@@ -1370,29 +1448,13 @@ margin-top: 40px;
   transition: transform 0.5s ease;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .service-image {
-    width: 100%;
-    height: 250px;
-    max-width: 350px;
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 600px) {
-  .service-image {
-    height: 200px;
-  }
-}
-
 .service-content {
   padding: 1rem;
 }
 
 .service-content h3 {
   font-size: 1.8rem;
-  color:   #fd7e14;;
+  color: #fd7e14;
   margin-bottom: 1.5rem;
 }
 
@@ -1405,7 +1467,7 @@ margin-top: 40px;
 .learn-more-btn {
   background: none;
   border: none;
-  color:   #fd7e14;;
+  color: #fd7e14;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -1423,35 +1485,56 @@ margin-top: 40px;
   transform: translateX(5px);
 }
 
-/* Responsive Design */
+/* ✅ Responsive adjustments */
+@media (max-width: 1024px) {
+  .service-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .service-content p {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 900px) {
   .service-item {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack image & content vertically */
     gap: 2rem;
+    text-align: center;
   }
-  
+
   .service-item.right {
-    direction: ltr;
+    direction: ltr; /* Reset flipped layout on smaller screens */
   }
-  
-  .service-image img {
+
+  .service-image {
     height: 250px;
+    max-width: 100%;
+  }
+
+  .service-content {
+    text-align: center;
   }
 }
 
 @media (max-width: 600px) {
   .bank-services {
-    padding: 2rem 1rem;
+    padding: 2rem 1rem; /* Reduce padding on small devices */
   }
-  
+
   .service-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
-  
-  .service-image img {
+
+  .service-content p {
+    font-size: 0.95rem;
+  }
+
+  .service-image {
     height: 200px;
   }
 }
+
 /* blog section  */
 .blog-section {
   padding: 5rem 0;
